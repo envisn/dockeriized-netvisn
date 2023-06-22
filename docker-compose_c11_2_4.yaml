@@ -8,7 +8,7 @@ services:
     environment:
       - MARKLOGIC_INIT=true
       - MARKLOGIC_ADMIN_USERNAME=admin
-      - MARKLOGIC_ADMIN_PASSWORD=Envisn2022
+      - MARKLOGIC_ADMIN_PASSWORD=envisn
       - TZ=America/Chicago
     volumes:
       - MarkLogic_1n_vol3:/var/opt/MarkLogic
