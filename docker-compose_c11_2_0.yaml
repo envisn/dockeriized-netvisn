@@ -1,0 +1,44 @@
+version: '3.6'
+services:
+  ml-server:
+    #image: docker.io/marklogicdb/marklogic-db:9.0-11-dev-centos
+    image: docker.io/venkatnamala/marklogic-db-netvisn:9.0-11-dev-centos
+    container_name: ml-server
+    dns_search: ''
+    environment:
+      - MARKLOGIC_INIT=true
+      - MARKLOGIC_ADMIN_USERNAME=admin
+      - MARKLOGIC_ADMIN_PASSWORD=Envisn2022
+      - TZ=America/Chicago
+    volumes:
+      - MarkLogic_1n_vol3:/var/opt/MarkLogic
+      - './netvisn/config/audit-diff-summarize.xsl:/var/opt/MarkLogic/Modules/audit-diff-summarize.xsl'
+      - './netvisn/config/audit-diff-summarize.xsl:/audit-diff-summarize.xsl'
+    ports:
+      - '8000-8010:8000-8010'
+      - '8023:8023'
+      - '7997:7997'
+    networks:
+      - external_net
+  netvisn:
+    depends_on:
+      - ml-server
+    image: docker.io/venkatnamala/netvisn:9_0_C11200
+    tty: true
+    container_name: netvisn
+    ports:
+      - '8080:8080'
+    environment:
+      - UNIQUE_ID=17c6a440c-807f-3a17-b8a5-554170b9a1f5
+      - TZ=America/Chicago
+    volumes:
+      - './netvisn/appdata:/opt/netvisn/webapps/netvisn/appdata'
+      - './netvisn/logs:/opt/netvisn/webapps/netvisn/WEB-INF/logs'
+      - './netvisn/config/netvisn.properties:/opt/netvisn/webapps/netvisn/WEB-INF/netvisn.properties'
+      - './netvisn/config/venkat.l4j:/opt/netvisn/webapps/netvisn/WEB-INF/venkat.l4j'
+    networks:
+      - external_net
+networks:
+  external_net: {}
+volumes:
+  MarkLogic_1n_vol3:
