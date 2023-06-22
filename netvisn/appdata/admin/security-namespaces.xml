@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nv:security-namespaces xsi:schemaLocation="http://developer.envisn.com/xmlns/envisn/netvisn/ security-namespaces.xsd" xmlns:nv="http://developer.envisn.com/xmlns/envisn/netvisn/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+<nv:crn-namespace><nv:crn-namespace-id>default</nv:crn-namespace-id><nv:crn-namespace-name>Demo1</nv:crn-namespace-name><nv:crn-username>Administrator</nv:crn-username><nv:crn-password>M3OEkPl7bgE=</nv:crn-password><nv:valid>true</nv:valid></nv:crn-namespace></nv:security-namespaces>

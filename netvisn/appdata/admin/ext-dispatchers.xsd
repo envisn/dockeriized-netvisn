@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:nv="http://developer.envisn.com/xmlns/envisn/netvisn/" targetNamespace="http://developer.envisn.com/xmlns/envisn/netvisn/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="ext-dispatchers" type="nv:ext-dispatchersType"/>
+	<xs:complexType name="ext-dispatchersType">
+		<xs:sequence>
+			<xs:element name="ext-dispatcher" type="nv:ext-dispatcherType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ext-dispatcherType">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="url" type="xs:string"/>
+			<xs:element name="crn-namespace-id" type="xs:string"/>
+			<xs:element name="crn-namespace-name" type="xs:string"/>
+			<xs:element name="crn-username" type="xs:string"/>
+			<xs:element name="crn-password" type="xs:string"/>
+			<xs:element name="cognos-version" type="xs:string"/>
+			<xs:element name="valid" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
